@@ -1,0 +1,17 @@
+- name: bamstats test_bamstats_no_annotation
+  command: nextflow run ./tests/modules/nf-core/bamstats -entry test_bamstats_no_annotation -c ./tests/config/nextflow.config -c ./tests/modules/nf-core/bamstats/nextflow.config
+  tags:
+    - bamstats
+  files:
+    - path: output/bamstats/test_stats.json
+      md5sum: 0ecf3cc8443d708108094987cb73b959
+    - path: output/bamstats/versions.yml
+
+- name: bamstats test_bamstats_annotation
+  command: nextflow run ./tests/modules/nf-core/bamstats -entry test_bamstats_annotation -c ./tests/config/nextflow.config -c ./tests/modules/nf-core/bamstats/nextflow.config
+  tags:
+    - bamstats
+  files:
+    - path: output/bamstats/test_stats.json
+      md5sum: eb6bc5cf219d6fa6750b5393722a5fba
+    - path: output/bamstats/versions.yml

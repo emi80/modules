@@ -1,0 +1,46 @@
+name: "bamstats"
+description: "A nextflow module to compute statistics form a BAM file using bamstats"
+keywords:
+  - bamstats
+  - stats
+  - bam
+tools:
+  - "bamstats":
+      description: "A command line tool to compute mapping statistics from a BAM file"
+      homepage: "https://github.com/guigolab/bamstats"
+      documentation: "https://github.com/guigolab/bamstats/blob/master/README.md"
+      tool_dev_url: "https://github.com/guigolab/bamstats"
+      licence: "BSD-3-Clause"
+
+input:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. [ id:'test', single_end:false ]
+  - bam:
+      type: file
+      description: BAM file
+      pattern: "*.bam"
+  - annotation:
+      type: file
+      description: Annotation file
+      pattern: "*.{gtf,gtf.gz,bed,bed.gz}"
+
+output:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. [ id:'test', single_end:false ]
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+  - stats:
+      type: file
+      description: The file containing the statistics
+      pattern: "*_stats.json"
+
+authors:
+  - "@emi80"
